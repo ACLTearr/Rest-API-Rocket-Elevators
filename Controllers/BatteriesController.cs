@@ -50,7 +50,7 @@ namespace RestAPI.Controllers
                 return NotFound();
             }
 
-            return Content("The status of battery " + battery.id + " is: " + battery.status);
+            return battery.status;
         }
 
 //----------------------------------- Changing the status of a specific Battery -----------------------------------\\

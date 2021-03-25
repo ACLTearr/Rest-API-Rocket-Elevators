@@ -7373,11 +7373,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\codeboxx\\week8\\REST-API\\RestAPI\\RestAPI.csproj",
+      "projectUniqueName": "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj",
       "projectName": "RestAPI",
-      "projectPath": "C:\\codeboxx\\week8\\REST-API\\RestAPI\\RestAPI.csproj",
+      "projectPath": "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj",
       "packagesPath": "C:\\Users\\Kaelan\\.nuget\\packages\\",
-      "outputPath": "C:\\codeboxx\\week8\\REST-API\\RestAPI\\obj\\",
+      "outputPath": "C:\\codeboxx\\week9\\Rest API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kaelan\\AppData\\Roaming\\NuGet\\NuGet.Config"
