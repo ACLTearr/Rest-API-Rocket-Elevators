@@ -15,5 +15,6 @@ namespace RestAPI.Models
         public DbSet<Elevator> elevators { get; set; }
         public DbSet<Lead> leads { get; set; }
         public DbSet<Customer> customers { get; set; }
+        public DbSet<Intervention> interventions { get; set; }
     }
 }

@@ -42,7 +42,7 @@ namespace RestAPI.Controllers
         
         // GET: api/Columns/id/Status
         [HttpGet("{id}/Status")]
-        public async Task<ActionResult<Column>> GetColumnStatus([FromRoute] long id)
+        public async Task<ActionResult<string>> GetColumnStatus([FromRoute] long id)
         {
             var column = await _context.columns.FindAsync(id);
 
@@ -51,7 +51,7 @@ namespace RestAPI.Controllers
                 return NotFound();
             }
 
-            return Content("The status of column " + column.id + " is: " + column.status);
+            return column.status;
         }
 
 

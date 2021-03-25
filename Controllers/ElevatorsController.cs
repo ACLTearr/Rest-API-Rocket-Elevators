@@ -52,7 +52,7 @@ namespace RestAPI.Controllers
 
         // GET: api/Elevators/id/Status
         [HttpGet("{id}/Status")]
-        public async Task<ActionResult<Elevator>> GetColumnStatus([FromRoute] long id)
+        public async Task<ActionResult<string>> GetColumnStatus([FromRoute] long id)
         {
             var elevator = await _context.elevators.FindAsync(id);
 
@@ -61,7 +61,7 @@ namespace RestAPI.Controllers
                 return NotFound();
             }
 
-            return Content("The status of elevator " + elevator.id + " is: " + elevator.status);
+            return elevator.status;
         }
 
 //----------------------------------- Changing the status of a specific Elevator -----------------------------------\\
