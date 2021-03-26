@@ -36,7 +36,7 @@ Each request works as follows:
 
 WEEK 9 - Consolidation
 
-This week, we had to add new endpoints for the interventions created in the rails app, and they are all as follows:
+This week, we had to add new endpoints for the interventions created in the rails app, and they can be found at the PostMan team workspace here, https://app.getpostman.com/join-team?invite_code=f09613b7a24e69fef5524a5d3f5f434e&ws=42edd766-bbd4-4fab-985f-6b3d71ef8b9d, and are all as follows:
 
 1. GET Interventions (all) - Shows all interventions in the database.
 
@@ -47,3 +47,5 @@ This week, we had to add new endpoints for the interventions created in the rail
 4. PUT Change to "In Progress" - Changes the status of the specified intervention to "In Progress" and sets the start date to the time that the request was sent.
 
 5. PUT Change to "Completed" - Changes the status of the specified intervention to "Completed" and sets the end date to the time that the request was sent.
+
+The URL for the API is the same as the one mentioned earlier in this README.
