@@ -105,7 +105,7 @@ namespace RestAPI.Controllers
                 try
                 {
                     await _context.SaveChangesAsync();
-                    return Content("The requested interventions status has been changed to " + intervention.status + ", with a start date of " + DateTime.Now);
+                    return Content("The requested interventions status has been changed to " + intervention.status + ", with an end date of " + DateTime.Now);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
