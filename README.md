@@ -33,3 +33,17 @@ Each request works as follows:
 12. Get Leads (all) - Returns a list of all the leads in the database.
 
 13. GET Leads (Last 30 Days) - Returns a list of all leads submitted in the last 30 days, where the submitted lead is not also linked to a customer.
+
+WEEK 9 - Consolidation
+
+This week, we had to add new endpoints for the interventions created in the rails app, and they are all as follows:
+
+1. GET Interventions (all) - Shows all interventions in the database.
+
+2. GET Intervention - Returns the information for a specific intervention, and different interventions can be returned by changing the number at the end of the API request. 
+
+3. GET Interventions (No start date, Pending) - Returns all interventions without a start date and a status of "Pending".
+
+4. PUT Change to "In Progress" - Changes the status of the specified intervention to "In Progress" and sets the start date to the time that the request was sent.
+
+5. PUT Change to "Completed" - Changes the status of the specified intervention to "Completed" and sets the end date to the time that the request was sent.
