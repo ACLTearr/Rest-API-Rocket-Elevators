@@ -119,7 +119,7 @@ namespace RestAPI.Controllers
                     }
                 }
             }
-            return Content("Valid status: In Progress");
+            return Content("Valid status: Completed");
         }
 
         private bool InterventionExists(long id)
