@@ -25,7 +25,14 @@ namespace RestAPI.Controllers
         public async Task<ActionResult<IEnumerable<Building>>> GetBuildings()
         {
             return await _context.buildings.ToListAsync();
-        }      
+        }   
+
+        // GET: api/Buildings
+        [HttpGet("{email}/customer")]
+        public object GetBuildingsByCustomerEmail(string email)
+        {
+            return _context.buildings.Where(b => b.email_of_the_administrator_of_the_building == email);
+        }     
 
 //----------------------------------- Retrieving all information from a specific Building -----------------------------------\\
 
