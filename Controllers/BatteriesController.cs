@@ -18,7 +18,14 @@ namespace RestAPI.Controllers
         public BatteriesController(RestAPIContext context)
         {
             _context = context;
-        }
+        }  
+
+        // GET: api/Buildings
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Battery>>> GetBatteries()
+        {
+            return await _context.batteries.ToListAsync();
+        } 
 
 
 //----------------------------------- Retrieving all information from a specific Battery -----------------------------------\\

@@ -18,7 +18,14 @@ namespace RestAPI.Controllers
         public ColumnsController(RestAPIContext context)
         {
             _context = context;
-        }
+        }  
+
+        // GET: api/Buildings
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Column>>> GetColumns()
+        {
+            return await _context.columns.ToListAsync();
+        } 
 
 
 

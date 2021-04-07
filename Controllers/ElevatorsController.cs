@@ -18,13 +18,20 @@ namespace RestAPI.Controllers
         public ElevatorsController(RestAPIContext context)
         {
             _context = context;
-        }
+        }  
+
+        // GET: api/Buildings
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Elevator>>> GetElevators()
+        {
+            return await _context.elevators.ToListAsync();
+        } 
 
 //------------------- Retrieving a list of Elevators that are not in operation at the time of the request -------------------\\
 
         // GET: api/Elevators/NotActive
         [HttpGet("NotActive")]
-        public object GetElevators()
+        public object GetInactiveElevators()
         {
             return _context.elevators
                         .Where(elevator => elevator.status != "Active")
