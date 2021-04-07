@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj": {}
+    "C:\\codeboxx\\week9-10\\Rest API\\RestAPI.csproj": {}
   },
   "projects": {
-    "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj": {
+    "C:\\codeboxx\\week9-10\\Rest API\\RestAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj",
+        "projectUniqueName": "C:\\codeboxx\\week9-10\\Rest API\\RestAPI.csproj",
         "projectName": "RestAPI",
-        "projectPath": "C:\\codeboxx\\week9\\Rest API\\RestAPI.csproj",
+        "projectPath": "C:\\codeboxx\\week9-10\\Rest API\\RestAPI.csproj",
         "packagesPath": "C:\\Users\\Kaelan\\.nuget\\packages\\",
-        "outputPath": "C:\\codeboxx\\week9\\Rest API\\obj\\",
+        "outputPath": "C:\\codeboxx\\week9-10\\Rest API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kaelan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Kaelan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

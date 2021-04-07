@@ -18,7 +18,14 @@ namespace RestAPI.Controllers
         public BuildingsController(RestAPIContext context)
         {
             _context = context;
-        }        
+        }  
+
+        // GET: api/Buildings
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Building>>> GetBuildings()
+        {
+            return await _context.buildings.ToListAsync();
+        }      
 
 //----------------------------------- Retrieving all information from a specific Building -----------------------------------\\
 
