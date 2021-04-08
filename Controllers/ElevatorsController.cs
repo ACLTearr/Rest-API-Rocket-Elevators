@@ -25,7 +25,23 @@ namespace RestAPI.Controllers
         public async Task<ActionResult<IEnumerable<Elevator>>> GetElevators()
         {
             return await _context.elevators.ToListAsync();
-        } 
+        }  
+
+        // GET: api/elevators/find-elevators/{id}
+        [HttpGet("find-elevators/{id}")]
+        public ActionResult<List<Elevator>> GetElevatorsFromColumn(long id)
+        {
+            List<Elevator> elevators = _context.elevators.ToList();
+            List<Elevator> columnElevators = new List<Elevator>();
+            foreach (Elevator elevator in elevators)
+            {
+                if (elevator.column_id == id)
+                {
+                    columnElevators.Add(elevator);
+                }
+            }
+            return columnElevators;
+        }
 
 //------------------- Retrieving a list of Elevators that are not in operation at the time of the request -------------------\\
 

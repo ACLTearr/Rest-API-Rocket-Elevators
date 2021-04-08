@@ -25,9 +25,9 @@ namespace RestAPI.Controllers
         public async Task<ActionResult<IEnumerable<Building>>> GetBuildings()
         {
             return await _context.buildings.ToListAsync();
-        }   
+        } 
 
-        // GET: api/Buildings
+        // GET: api/Buildings by customer email
         [HttpGet("{email}/customer")]
         public object GetBuildingsByCustomerEmail(string email)
         {

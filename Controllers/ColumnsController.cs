@@ -25,7 +25,23 @@ namespace RestAPI.Controllers
         public async Task<ActionResult<IEnumerable<Column>>> GetColumns()
         {
             return await _context.columns.ToListAsync();
-        } 
+        }  
+
+        // GET: api/columns/find-columns/{id}
+        [HttpGet("find-columns/{id}")]
+        public ActionResult<List<Column>> GetColumnsFromBattery(long id)
+        {
+            List<Column> columns = _context.columns.ToList();
+            List<Column> batteryColumns = new List<Column>();
+            foreach (Column column in columns)
+            {
+                if (column.battery_id == id)
+                {
+                    batteryColumns.Add(column);
+                }
+            }
+            return batteryColumns;
+        }
 
 
 

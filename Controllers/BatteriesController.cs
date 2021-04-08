@@ -27,6 +27,22 @@ namespace RestAPI.Controllers
             return await _context.batteries.ToListAsync();
         } 
 
+        // GET: api/batteries/find-columns/{id}
+        [HttpGet("find-batteries/{id}")]
+        public ActionResult<List<Battery>> GetBatteriesFromBuilding(long id)
+        {
+            List<Battery> batteries = _context.batteries.ToList();
+            List<Battery> buildingBatteries = new List<Battery>();
+            foreach (Battery battery in batteries)
+            {
+                if (battery.building_id == id)
+                {
+                    buildingBatteries.Add(battery);
+                }
+            }
+            return buildingBatteries;
+        }
+
 
 //----------------------------------- Retrieving all information from a specific Battery -----------------------------------\\
 
