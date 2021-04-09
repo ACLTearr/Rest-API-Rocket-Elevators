@@ -20,6 +20,7 @@ namespace RestAPI
 {
     public class Startup
     {
+        readonly string allowSpecificOrigins = "_allowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,20 +32,12 @@ namespace RestAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors();
-                    
-            // var databaseConnection = "databaseConnectionString";
-            
-            // string value = ConfigurationManager.ConnectionStrings[databaseConnection].ConnectionString;
+            services.AddCors(policy => policy.AddPolicy("Policy", builder => {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
 
             services.AddDbContext<RestAPIContext>(options =>
                 options.UseMySql(
-
-                    // Kaelen Connection
-                    // "server=localhost;database=myapp_development;uid=root;password=Pa$$w0rd!",
-
-                    // Cristiane Connection
-                    // "server=localhost;port=3306;database=RailsApp_development;uid=codeboxx;password=Codeboxx1*",
 
                     // Live Site Connection
                     "server=codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com;database=KaelenBurroughs;uid=codeboxx;password=Codeboxx1!;SslMode=none",
@@ -52,14 +45,9 @@ namespace RestAPI
                     new MySqlServerVersion(new Version(8, 0, 21)),
                         mySqlOptions => mySqlOptions
                             .CharSetBehavior(CharSetBehavior.NeverAppend))
-                    // Everything from this point on is optional but helps with debugging.
-                    // .EnableSensitiveDataLogging()
-                    // .EnableDetailedErrors();
                     );
 
             services.AddMvc();
-
-            // "server=localhost;database=myapp_development;uid=root;password=Pa$$w0rd!",
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -77,6 +65,8 @@ namespace RestAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestAPI v1"));
             }
+
+            app.UseCors("Policy");
 
             app.UseHttpsRedirection();
 

@@ -122,6 +122,16 @@ namespace RestAPI.Controllers
             return Content("Valid status: Completed");
         }
 
+        // POST: api/interventions
+        [HttpPost]
+        public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
+        {
+            _context.interventions.Add(intervention);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetIntervention", new { id = intervention.id }, intervention);
+        }
+
         private bool InterventionExists(long id)
         {
             return _context.interventions.Any(e => e.id == id);
