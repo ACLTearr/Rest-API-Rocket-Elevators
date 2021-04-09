@@ -32,7 +32,7 @@ namespace RestAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors(policy => policy.AddPolicy("Policy", builder => {
+            services.AddCors(policy => policy.AddPolicy("myPolicy", builder => {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
@@ -66,7 +66,7 @@ namespace RestAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestAPI v1"));
             }
 
-            app.UseCors("Policy");
+            app.UseCors("myPolicy");
 
             app.UseHttpsRedirection();
 
