@@ -126,6 +126,10 @@ namespace RestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
         {
+
+            intervention.created_at = DateTime.Now;
+            intervention.updated_at = DateTime.Now;
+
             _context.interventions.Add(intervention);
             await _context.SaveChangesAsync();
 
