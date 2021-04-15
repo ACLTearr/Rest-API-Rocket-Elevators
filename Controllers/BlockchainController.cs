@@ -27,20 +27,6 @@ namespace RestAPI.Controllers
             return await _context.blockchain.ToListAsync();
         }
 
-        // GET: api/Blockchain/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Blockchain>> GetBlockchain(long id)
-        {
-            var blockchain = await _context.blockchain.FindAsync(id);
-
-            if (blockchain == null)
-            {
-                return NotFound();
-            }
-
-            return blockchain;
-        }
-
         // PUT: api/Blockchain/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -100,6 +86,14 @@ namespace RestAPI.Controllers
         }
 
         // WEEK 10 BLOCKCHAIN ENDPOINTS
+
+        // GET: api/Blockchain/{contract_name}
+        [HttpGet("{contract_name}")]
+        public object GetBlockchain([FromRoute] string contract_name)
+        {
+            return _context.blockchain
+            .Where(blockchain => blockchain.contract_name == contract_name);
+        }
         
 
         // POST: api/blockchain/project-office
