@@ -11,54 +11,47 @@ namespace RestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class QuotesController : ControllerBase
     {
         private readonly RestAPIContext _context;
 
-        public CustomersController(RestAPIContext context)
+        public QuotesController(RestAPIContext context)
         {
             _context = context;
         }
 
-        // GET: api/Customers
+        // GET: api/Quotes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> Getcustomers()
+        public async Task<ActionResult<IEnumerable<Quote>>> Getquotes()
         {
-            return await _context.customers.ToListAsync();
-        }   
-
-        // GET: api/Customer
-        [HttpGet("{email}/customer")]
-        public object GetBuildingsByCustomerEmail(string email)
-        {
-            return _context.customers.Where(c => c.email_of_company_contact == email);
+            return await _context.quotes.ToListAsync();
         }
 
-        // GET: api/Customers/5
+        // GET: api/Quotes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(long id)
+        public async Task<ActionResult<Quote>> GetQuote(long id)
         {
-            var customer = await _context.customers.FindAsync(id);
+            var quote = await _context.quotes.FindAsync(id);
 
-            if (customer == null)
+            if (quote == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            return quote;
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Quotes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(long id, Customer customer)
+        public async Task<IActionResult> PutQuote(long id, Quote quote)
         {
-            if (id != customer.id)
+            if (id != quote.id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(customer).State = EntityState.Modified;
+            _context.Entry(quote).State = EntityState.Modified;
 
             try
             {
@@ -66,7 +59,7 @@ namespace RestAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(id))
+                if (!QuoteExists(id))
                 {
                     return NotFound();
                 }
@@ -79,50 +72,50 @@ namespace RestAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Customers
+        // POST: api/Quotes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Quote>> PostQuote(Quote quote)
         {
-            _context.customers.Add(customer);
+            _context.quotes.Add(quote);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.id }, customer);
+            return CreatedAtAction("GetQuote", new { id = quote.id }, quote);
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Quotes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(long id)
+        public async Task<IActionResult> DeleteQuote(long id)
         {
-            var customer = await _context.customers.FindAsync(id);
-            if (customer == null)
+            var quote = await _context.quotes.FindAsync(id);
+            if (quote == null)
             {
                 return NotFound();
             }
 
-            _context.customers.Remove(customer);
+            _context.quotes.Remove(quote);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
-
+        
 //-------------------------------WEEK 13 AI ENDPOINTS-------------------------------------------------------------------------//
 
 
-        // GET: api/Customers/count
+        // GET: api/quotes/count
         [HttpGet("count")]
-        public object GetCustomersCount()
+        public object GetQuotesCount()
         {
-            return (_context.customers).Count();
+            return (_context.quotes).Count();
             
         }
 
 
 //=============================================WEEK 13 AI ENDPOINTS------------------------------------------------------------//
 
-        private bool CustomerExists(long id)
+        private bool QuoteExists(long id)
         {
-            return _context.customers.Any(e => e.id == id);
+            return _context.quotes.Any(e => e.id == id);
         }
     }
 }

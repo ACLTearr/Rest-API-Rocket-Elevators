@@ -121,7 +121,29 @@ namespace RestAPI.Controllers
                 }
             }
             return Content("Valid status: Intervention, Inactive, Active. Try again!  ");
-        }        
+        }  
+
+//-------------------------------WEEK 13 AI ENDPOINTS-------------------------------------------------------------------------//
+
+
+        // GET: api/Elevators/NotActive
+        [HttpGet("inactive-count")]
+        public object GetInactiveElevatorsCount()
+        {
+            return (_context.elevators.Where(elevator => elevator.status != "Active")).Count();
+            
+        }
+
+        // GET: api/Elevators/NotActive
+        [HttpGet("count")]
+        public object GetElevatorsCount()
+        {
+            return (_context.elevators).Count();
+            
+        }
+
+
+//=============================================WEEK 13 AI ENDPOINTS------------------------------------------------------------//
 
         
         private bool ElevatorExists(long id)

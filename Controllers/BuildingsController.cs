@@ -66,6 +66,44 @@ namespace RestAPI.Controllers
             return InterventionList.Distinct().ToList();
         }
 
+//-------------------------------WEEK 13 AI ENDPOINTS-------------------------------------------------------------------------//
+
+
+        // GET: api/buildings/count
+        [HttpGet("count")]
+        public object GetBuildingsCount()
+        {
+            return (_context.buildings).Count();
+            
+        }
+
+        // GET: api/buildings/cities
+        [HttpGet("cities.")]
+        public object GetUniqueCitiess()
+        {
+            return (_context.buildings).Count();
+            
+        }
+
+        // GET: api/elevators/find-elevators/{id}
+        [HttpGet("cities")]
+        public int GetUniqueCities()
+        {
+            List<Building> buildings = _context.buildings.ToList();
+            List<long?> uniqueAddresses = new List<long?>();
+            foreach (Building building in buildings)
+            {
+                if (!uniqueAddresses.Contains(building.address_id))
+                {
+                    uniqueAddresses.Add(building.address_id);
+                }
+            }
+            return uniqueAddresses.Count();
+        }
+
+
+//=============================================WEEK 13 AI ENDPOINTS------------------------------------------------------------//
+
 
         private bool BuildingExists(long id)
         {
