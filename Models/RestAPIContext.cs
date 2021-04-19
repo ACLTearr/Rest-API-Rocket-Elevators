@@ -18,6 +18,5 @@ namespace RestAPI.Models
         public DbSet<Intervention> interventions { get; set; }
         public DbSet<Blockchain> blockchain { get; set; }
         public DbSet<Quote> quotes { get; set; }
-        public DbSet<Address> addresses { get; set; }
     }
 }
