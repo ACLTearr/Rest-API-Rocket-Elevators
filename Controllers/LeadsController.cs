@@ -36,5 +36,19 @@ namespace RestAPI.Controllers
             var newLeads = allLeads.Where(e => e.created_at >= DateTime.Today.AddDays(-30)).ToList();
             return newLeads;
         }
+
+//-------------------------------WEEK 13 AI ENDPOINTS-------------------------------------------------------------------------//
+
+
+        // GET: api/leads/count
+        [HttpGet("count")]
+        public object GetLeadsCount()
+        {
+            return (_context.leads).Count();
+            
+        }
+
+
+//=============================================WEEK 13 AI ENDPOINTS------------------------------------------------------------//
     }
 }

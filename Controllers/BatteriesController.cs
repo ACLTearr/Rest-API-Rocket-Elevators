@@ -112,6 +112,20 @@ namespace RestAPI.Controllers
             return Content("Valid status: Intervention, Inactive, Active. Try again!  ");
         }
 
+//-------------------------------WEEK 13 AI ENDPOINTS-------------------------------------------------------------------------//
+
+
+        // GET: api/batteries/count
+        [HttpGet("count")]
+        public object GetBatteriesCount()
+        {
+            return (_context.batteries).Count();
+            
+        }
+
+
+//=============================================WEEK 13 AI ENDPOINTS------------------------------------------------------------//
+
 
         private bool BatteryExists(long id)
         {
