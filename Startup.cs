@@ -32,7 +32,8 @@ namespace RestAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors(policy => policy.AddPolicy("Policy", builder => {
+            services.AddCors(policy => policy.AddPolicy("Policy", builder =>
+            {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
@@ -40,7 +41,7 @@ namespace RestAPI
                 options.UseMySql(
 
                     // Live Site Connection
-                    "server=codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com;database=KaelenBurroughs;uid=codeboxx;password=Codeboxx1!;SslMode=none",
+                    "server=burroughs.cry505e23x7p.ca-central-1.rds.amazonaws.com;database=KaelenBurroughs;uid=KaelenBurroughs;password=Codeboxx1!;SslMode=none",
 
                     new MySqlServerVersion(new Version(8, 0, 21)),
                         mySqlOptions => mySqlOptions
